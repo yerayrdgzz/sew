@@ -1,4 +1,49 @@
 /*Yeray Rodríguez Granda UO284247*/
 /*Estilo generales del proyecto MotoGP-Desktop*/
 
+/** Tipografía general del proyecto */
+/* Especificidad 001*/
+body{
+    font-family: "Georgia", serif;
+    background-color: #040404;
+    color: #FFFFFF;
+}
 
+/* Especificidad 001*/
+section, article, aside, header, footer, nav, main{
+    background-color: #2E2C25;
+}
+
+/* Especificidad 001*/
+h1, h2, h3, h4, h5, h6{
+    color: #FA5404;
+}
+
+/* Especificidad 002 o 001*/
+nav a, p a, a {
+    color: #F37212;
+}
+
+/* Especificidad 001*/
+h1 a {
+    color: #FA5404;
+}
+
+header + p {
+  font-size: 0.8rem;
+}
+
+/* Destacar el documento actual (el <strong>) */
+header + p strong {
+  color: #FA5404;         /* resalta en naranja más brillante */
+}
+
+a.active {
+  color: #FA5404;                    /* mantiene coherencia con los títulos */
+  background-color: #1A1A1A;         /* destaca sobre el fondo */
+  font-weight: 700;                  /* resalta sin depender del color */
+  padding: 0.2em 0.4em;              /* usa em para escalar con la fuente */
+  border-radius: 0.3em;              /* borde suave relativo */
+  border-bottom: 0.15em solid #FA5404; /* línea inferior relativa */
+  text-shadow: 0 0 0.5em #FA5404;    /* brillo sutil escalable */
+}
