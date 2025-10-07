@@ -1,0 +1,103 @@
+/* ============================================= */
+/* layout.css - Esquemas de posicionamiento MotoGP Desktop */
+/* Yeray Rodríguez Granda UO284247 */
+/* ============================================= */
+
+/* === HEADER con FLEXBOX (disposición vertical) === */
+header {
+    display: flex;                 /* activa Flexbox */
+    flex-direction: column;        /* apila h1 y nav verticalmente */
+    align-items: center;           /* centra el contenido horizontalmente */
+    justify-content: center;       /* centra verticalmente si hay altura extra */
+    flex-wrap: nowrap;             /* no hace falta envolver porque es en columna */
+    padding: 1em;
+    gap: 1em;                      /* separación entre h1 y nav */
+  }
+  
+  /* Título principal */
+  header h1 {
+    margin: 0;                     /* elimina márgenes por defecto */
+    text-align: center;            /* centra el texto */
+    flex: 0 0 auto;                /* no se estira ni encoge */
+  }
+  
+  /* === NAVEGACIÓN con FLEXBOX (disposición horizontal) === */
+  nav {
+    display: flex;                 /* activa Flexbox */
+    flex-direction: row;           /* coloca los enlaces en fila */
+    justify-content: center;       /* centra horizontalmente los enlaces */
+    align-items: center;           /* centra verticalmente */
+    flex-wrap: wrap;               /* permite que bajen si no caben */
+    gap: 0.5em;                    /* espacio entre enlaces */
+    padding: 0.5em;
+    width: 100%;                   /* ocupa todo el ancho disponible */
+  }
+  
+  /* Enlaces dentro de nav */
+  nav a {
+    flex: 0 1 auto;                /* los enlaces se adaptan a su contenido */
+    text-align: center;
+  }
+
+  
+
+
+  /* ========================================================= */
+/* MEDIA QUERY: Diseño adaptado para pantallas pequeñas      */
+/* ========================================================= */
+
+@media (max-width: 800px) {
+
+    /* 1️⃣ HEADER: mostrar el contenido en columna */
+    header {
+      display: flex;
+      flex-direction: column;      /* apila h1 y nav */
+      align-items: center;         /* centra horizontalmente */
+      justify-content: center;     /* centra verticalmente si hay espacio extra */
+      gap: 0.8em;                  /* separa ligeramente los elementos */
+    }
+  
+    /* 2️⃣ NAV: los enlaces en columna */
+    nav {
+      display: flex;
+      flex-direction: column;      /* apila los enlaces verticalmente */
+      align-items: center;         /* centra cada enlace */
+      justify-content: center;
+      gap: 0.5em;                  /* separación entre enlaces */
+    }
+  
+    /* 3️⃣ ENLACES DENTRO DEL NAV: se ajustan al ancho disponible */
+    nav a {
+      text-align: center;          /* centra el texto del enlace */
+      justify-content: center;
+    }
+  
+    
+  }
+
+  @media (max-width: 700px){
+   
+      
+      video {
+          width: 80%;
+          height: auto;
+        }
+         
+    
+  }
+
+  @media (max-width: 350px){
+    header+p {
+        display: none;               /* oculta las migas */
+      }
+      
+      video {
+          width: 100%;
+          height: auto;
+        }
+        audio {
+            width: 100%;
+          }   
+    
+  }
+    
