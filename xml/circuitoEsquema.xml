@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<circuit
+xmlns="http://www.uniovi.es"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.uniovi.es circuito.xsd"
+>
+    <name>MotorLand Aragón</name>
+    <length units="metros">5300</length>
+    <width units="metros">12</width>
+    <date>2025-06-08</date>
+    <hour>14:00:00</hour>
+    <turns>23</turns>
+    <locality>Alcañiz. Teruel</locality>
+    <country>Spain</country>
+    <sponsor>GoPro</sponsor>
+    <references>
+        <reference alt="Motorland Aragon">https://www.motorlandaragon.com/es</reference>
+        <reference alt="Wikipedia: Motorland Aragon">https://es.wikipedia.org/wiki/MotorLand_Arag%C3%B3n</reference>
+        <reference alt="La Invernal 2026: Motorland Aragón busca la causa benéfica para su iniciativa solidaria">https://soymotero.net/noticia/la-invernal-2026-motorland-aragon-informacion/</reference>
+    </references>
+    <images>
+        <image>multimedia/panorama.jpeg</image>
+        <image>multimedia/recta.jpg</image>
+        <image>multimedia/curva.jpg</image>
+    </images>
+    <videos>
+        <video alt="Vídeo de una carrera de motogp">multimedia/circuito.mp4</video>
+    </videos>
+    <coordinates>
+        <longitude>-0.1978288</longitude>
+        <latitude>41.0782888</latitude>
+        <altitude units="metros">368.63</altitude>
+    </coordinates>
+     <sections>
+        <section>
+            <distance units="metros">0</distance>
+            <sector>1</sector>
+            <coordinates>
+                <longitude>-0.1978288</longitude>
+                <latitude>41.0782888</latitude>
+                <altitude units="metros">368.63</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">252</distance>
+            <sector>1</sector>
+            <coordinates>
+                <longitude> -0.2000895003778302</longitude>
+                <latitude>41.07968336235442</latitude>
+                <altitude units="metros">373</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">26</distance>
+            <sector>1</sector>
+            <coordinates>
+                <longitude>-0.2003694039327841</longitude>
+                <latitude>41.07974621561362</latitude>
+                <altitude units="metros">373</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">155</distance>
+            <sector>2</sector>
+            <coordinates>
+                <longitude>-0.2015968578230232</longitude>
+                <latitude>41.07872517901811</latitude>
+                <altitude units="metros">372</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">67</distance>
+            <sector>2</sector>
+            <coordinates>
+                <longitude>-0.2019908754487099</longitude>
+                <latitude>41.07861618087568</latitude>
+                <altitude units="metros">374</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">181</distance>
+            <sector>2</sector>
+            <coordinates>
+                <longitude>-0.2024416556946007</longitude>
+                <latitude>41.07858251487299</latitude>
+                <altitude units="metros">380</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">41</distance>
+            <sector>3</sector>
+            <coordinates>
+                <longitude>-0.2044046406307298</longitude>
+                <latitude>41.07909188102565</latitude>
+                <altitude units="metros">382</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">38</distance>
+            <sector>3</sector>
+            <coordinates>
+                <longitude>-0.2048136636946785</longitude>
+                <latitude>41.07931745718076</latitude>
+                <altitude units="metros">384</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">233</distance>
+            <sector>3</sector>
+            <coordinates>
+                <longitude>-0.2049861705030565</longitude>
+                <latitude>41.07963026081038</latitude>
+                <altitude units="metros">397</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">47</distance>
+            <sector>3</sector>
+            <coordinates>
+                <longitude>-0.2054676501649666</longitude>
+                <latitude>41.08173234201702</latitude>
+                <altitude units="metros">397</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">90</distance>
+            <sector>3</sector>
+            <coordinates>
+                <longitude>-0.205774735289274</longitude>
+                <latitude>41.08204948008022</latitude>
+                <altitude units="metros">391</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">40</distance>
+            <sector>4</sector>
+            <coordinates>
+                <longitude>-0.2066939638250354</longitude>
+                <latitude>41.08256944101463</latitude>
+                <altitude units="metros">394</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">10</distance>
+            <sector>4</sector>
+            <coordinates>
+                <longitude>-0.2070591643297826</longitude>
+                <latitude>41.08254671874548</latitude>
+                <altitude units="metros">397</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">20</distance>
+            <sector>4</sector>
+            <coordinates>
+                <longitude>-0.2072350413255297</longitude>
+                <latitude>41.08240337414477</latitude>
+                <altitude units="metros">397</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">140</distance>
+            <sector>4</sector>
+            <coordinates>
+                <longitude>-0.2076184896281397</longitude>
+                <latitude>41.08115934857558</latitude>
+                <altitude units="metros">405</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">80</distance>
+            <sector>4</sector>
+            <coordinates>
+                <longitude>-0.2082594223587886</longitude>
+                <latitude>41.08056638103825</latitude>
+                <altitude units="metros">405</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">50</distance>
+            <sector>4</sector>
+            <coordinates>
+                <longitude>-0.208701295378263</longitude>
+                <latitude>41.08032541174668</latitude>
+                <altitude units="metros">407</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">50</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2092067279698129</longitude>
+                <latitude>41.08011414914778</latitude>
+                <altitude units="metros">408</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">40</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2097356433107378</longitude>
+                <latitude>41.07994097938012</latitude>
+                <altitude units="metros">407</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">80</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2100619310846075</longitude>
+                <latitude>41.08007498664976</latitude>
+                <altitude units="metros">407</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">330</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2107347545889382</longitude>
+                <latitude>41.08299270195446</latitude>
+                <altitude units="metros">399</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">30</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2105422518603006</longitude>
+                <latitude>41.08325185730011</latitude>
+                <altitude units="metros">397</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">80</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.209922335480191</longitude>
+                <latitude>41.08340990748056</latitude>
+                <altitude units="metros">394</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">30</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2098125403740947</longitude>
+                <latitude>41.08362510241861</latitude>
+                <altitude units="metros">391</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">40</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2101360222137494</longitude>
+                <latitude>41.08387499057386</latitude>
+                <altitude units="metros">388</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">30</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2104978352950848</longitude>
+                <latitude>41.08404316474735</latitude>
+                <altitude units="metros">386</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">50</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2109675409976575</longitude>
+                <latitude>41.08417784881951</latitude>
+                <altitude units="metros">385</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">70</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2116478560711632</longitude>
+                <latitude>41.08419586007416</latitude>
+                <altitude units="metros">384</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">50</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2121056108778829</longitude>
+                <latitude>41.08411432910664</latitude>
+                <altitude units="metros">384</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">50</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2125950540573185</longitude>
+                <latitude>41.08383012675631</latitude>
+                <altitude units="metros">385</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">50</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2127785818393402</longitude>
+                <latitude>41.08348806881628</latitude>
+                <altitude units="metros">385</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">40</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.212852292771738</longitude>
+                <latitude>41.08310064935878</latitude>
+                <altitude units="metros">387</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">40</distance>
+            <sector>5</sector>
+            <coordinates>
+                <longitude>-0.2126109510889096</longitude>
+                <latitude>41.0815844544911</latitude>
+                <altitude units="metros">388</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">170</distance>
+            <sector>6</sector>
+            <coordinates>
+                <longitude>-0.2122551551033658</longitude>
+                <latitude>41.08071092893943</latitude>
+                <altitude units="metros">390</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">100</distance>
+            <sector>6</sector>
+            <coordinates>
+                <longitude>-0.2114822814525974</longitude>
+                <latitude>41.0796323080564</latitude>
+                <altitude units="metros">391</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">140</distance>
+            <sector>6</sector>
+            <coordinates>
+                <longitude>-0.2105646281997919</longitude>
+                <latitude>41.07884908526958</latitude>
+                <altitude units="metros">397</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">110</distance>
+            <sector>6</sector>
+            <coordinates>
+                <longitude>-0.2088990117156653</longitude>
+                <latitude>41.07940205030003</latitude>
+                <altitude units="metros">392</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">160</distance>
+            <sector>6</sector>
+            <coordinates>
+                <longitude>-0.2083486359899411</longitude>
+                <latitude>41.07936493096619</latitude>
+                <altitude units="metros">399</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">40</distance>
+            <sector>6</sector>
+            <coordinates>
+                <longitude>-0.2079377724593034</longitude>
+                <latitude>41.07914014862646</latitude>
+                <altitude units="metros">394</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">200</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.2064257004399894</longitude>
+                <latitude>41.07827004963019</latitude>
+                <altitude units="metros">381</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">100</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.2068257381405947</longitude>
+                <latitude>41.07744557037833</latitude>
+                <altitude units="metros">378</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">30</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.206719</longitude>
+                <latitude>41.077304</latitude>
+                <altitude units="metros">377</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">1210</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.193128</longitude>
+                <latitude>41.073631</latitude>
+                <altitude units="metros">358</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">30</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.192907</longitude>
+                <latitude>41.073706</latitude>
+                <altitude units="metros">359</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">20</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.1929530737811147</longitude>
+                <latitude>41.07388455524249</latitude>
+                <altitude units="metros">359</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">20</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.193762109546286</longitude>
+                <latitude>41.07427456723077</latitude>
+                <altitude units="metros">360</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">80</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.1940428326554244</longitude>
+                <latitude>41.07574629760065</latitude>
+                <altitude units="metros">360</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">170</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.1942481481619207</longitude>
+                <latitude>41.07607565051264</latitude>
+                <altitude units="metros">364</altitude>
+            </coordinates>
+        </section>
+        <section>
+            <distance units="metros">30</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.197764463680689</longitude>
+                <latitude>41.07824616297763</latitude>
+                <altitude units="metros">365</altitude>
+            </coordinates>
+        </section>
+         <section>
+            <distance units="metros">380</distance>
+            <sector>7</sector>
+            <coordinates>
+                <longitude>-0.1977644636806897</longitude>
+                <latitude>41.07824616297763</latitude>
+                <altitude units="metros">369</altitude>
+            </coordinates>
+        </section>
+    </sections>
+    <champion>
+        <name>Marc Márquez</name>
+        <duration>PT41M11.95S</duration>
+    </champion>
+    <classifieds>
+        <classified position="1">Marc Márquez</classified>
+        <classified position="2">Álex Márquez</classified>
+        <classified position="3">Francesco Bagnaia</classified>
+    </classifieds>
+</circuit>

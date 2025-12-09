@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns="http://www.uniovi.es"
+           targetNamespace="http://www.uniovi.es"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+
+	<xs:complexType name="coordinatesType">
+		<xs:sequence>
+			<xs:element ref="longitude"/>
+			<xs:element ref="latitude"/>
+			<xs:element ref="altitude"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- Tipos numéricos específicos -->
+	<xs:simpleType name="lengthType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.0"/>
+			<xs:maxInclusive value="250000.0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="widthType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.0"/>
+			<xs:maxInclusive value="25.0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="altitudeType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.0"/>
+			<xs:maxInclusive value="500.0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="distanceType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="0.0"/>
+			<xs:maxInclusive value="5000.0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="longitudeType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="-180.0"/>
+			<xs:maxInclusive value="180.0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:simpleType name="latitudeType">
+		<xs:restriction base="xs:decimal">
+			<xs:minInclusive value="-90.0"/>
+			<xs:maxInclusive value="90.0"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+
+	<xs:element name="circuit">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element ref="length"/>
+				<xs:element ref="width"/>
+				<xs:element ref="date"/>
+				<xs:element ref="hour"/>
+				<xs:element ref="turns"/>
+				<xs:element ref="locality"/>
+				<xs:element ref="country"/>
+				<xs:element ref="sponsor"/>
+				<xs:element ref="references"/>
+				<xs:element ref="images"/>
+				<xs:element ref="videos"/>
+				<xs:element ref="coordinates"/>
+				<xs:element ref="sections"/>
+				<xs:element ref="champion"/>
+				<xs:element ref="classifieds"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="name" type="xs:string"/>
+
+	<xs:element name="length">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="lengthType">
+					<xs:attribute name="units" type="xs:string" fixed="metros"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="width">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="widthType">
+					<xs:attribute name="units" type="xs:string" fixed="metros"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="date" type="xs:date"/>
+	<xs:element name="hour" type="xs:time"/>
+	<xs:element name="turns" type="xs:integer"/>
+	<xs:element name="locality" type="xs:string"/>
+	<xs:element name="country" type="xs:string"/>
+	<xs:element name="sponsor" type="xs:string"/>
+
+
+	<xs:element name="references">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="reference" minOccurs="3" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="reference">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="alt" type="xs:string" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="images">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="image" minOccurs="1" maxOccurs="5"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="image" type="xs:string"/>
+
+	<xs:element name="videos">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="video" minOccurs="1" maxOccurs="3"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="video">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="alt" type="xs:string" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="coordinates" type="coordinatesType"/>
+
+	<xs:element name="longitude" type="longitudeType"/>
+	<xs:element name="latitude" type="latitudeType"/>
+
+	<xs:element name="altitude">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="altitudeType">
+					<xs:attribute name="units" type="xs:string" fixed="metros"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+
+	<xs:element name="sections">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="section" minOccurs="1" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="section">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="distance"/>
+				<xs:element ref="sector"/>
+				<xs:element ref="coordinates"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="distance">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="distanceType">
+					<xs:attribute name="units" type="xs:string" fixed="metros"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="sector">
+		<xs:simpleType>
+			<xs:restriction base="xs:integer">
+				<xs:minInclusive value="0"/>
+				<xs:maxInclusive value="50"/>
+			</xs:restriction>
+		</xs:simpleType>
+	</xs:element>
+
+
+	<xs:element name="champion">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="name"/>
+				<xs:element ref="duration"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="duration" type="xs:duration"/>
+
+	<xs:element name="classifieds">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="classified" minOccurs="3" maxOccurs="3"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="classified">
+		<xs:complexType>
+			<xs:simpleContent>
+				<xs:extension base="xs:string">
+					<xs:attribute name="position" type="xs:string" use="required"/>
+				</xs:extension>
+			</xs:simpleContent>
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

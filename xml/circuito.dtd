@@ -1,0 +1,43 @@
+<!ELEMENT circuit (name, length, width, date, hour, turns, locality, country, sponsor, references, images, videos, coordinates, sections, champion, classifieds)>
+
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT length (#PCDATA)>
+<!ATTLIST length units CDATA #REQUIRED>
+<!ELEMENT width (#PCDATA)>
+<!ATTLIST width units CDATA #REQUIRED>
+<!ELEMENT date (#PCDATA)>
+<!ELEMENT hour (#PCDATA)>
+<!ELEMENT turns (#PCDATA)>
+<!ELEMENT locality (#PCDATA)>
+<!ELEMENT country (#PCDATA)>
+<!ELEMENT sponsor (#PCDATA)>
+
+<!ELEMENT references (reference, reference, reference+)>
+<!ELEMENT reference (#PCDATA)>
+<!ATTLIST reference alt CDATA #REQUIRED>
+
+<!ELEMENT images (image, image?, image?, image?, image?)>
+<!ELEMENT image (#PCDATA)>
+
+<!ELEMENT videos (video, video?, video?)>
+<!ELEMENT video (#PCDATA)>
+<!ATTLIST video alt CDATA #REQUIRED>
+
+<!ELEMENT coordinates (longitude, latitude, altitude)>
+<!ELEMENT longitude (#PCDATA)>
+<!ELEMENT latitude (#PCDATA)>
+<!ELEMENT altitude (#PCDATA)>
+<!ATTLIST altitude units CDATA #REQUIRED>
+
+<!ELEMENT sections (section+)>
+<!ELEMENT section (distance, sector, coordinates)>
+<!ELEMENT distance (#PCDATA)>
+<!ELEMENT sector (#PCDATA)>
+<!ATTLIST distance units CDATA #REQUIRED>
+
+<!ELEMENT champion (name, duration)>
+<!ELEMENT duration (#PCDATA)>
+
+<!ELEMENT classifieds (classified, classified, classified)>
+<!ELEMENT classified (#PCDATA)>
+<!ATTLIST classified position CDATA #REQUIRED>
