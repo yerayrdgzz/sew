@@ -1,102 +1,269 @@
 /*Yeray Rodríguez Granda UO284247*/
 /*Estilo generales del proyecto MotoGP-Desktop*/
 
-/** Tipografía general del proyecto */
-/* Especificidad 001*/
-
-html {
-  font-size: 1rem;
-}
-
+/* Tipografía general */
 body {
   font-family: "Georgia", serif;
-  color: #fff;
   background-color: #040404;
-  font-size: 1rem;
-  line-height: 1.6;
+  color: #FFFFFF; /* Contraste 21:1 */
 }
 
-/* Titulares jerárquicos */
+/* Contenedores principales */
+section, article, aside, header, footer, nav, main {
+  background-color: #1C1C1C; /* mejora contraste */
+  color: #FFFFFF;
+}
+
+/* Titulares */
+h1, h2, h3, h4, h5, h6 {
+  color: #ff852e; /* contraste 7.3:1 sobre #1C1C1C */
+  background-color: #1C1C1C;
+}
+
 h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: 2.2rem;        /* título principal */
+  font-weight: 700;         /* negrita */
+  line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: 600;
+  line-height: 1.3;
 }
 
 h3 {
   font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+h4 {
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
-/* Párrafos */
-p {
+h5 {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+h6 {
   font-size: 1rem;
-  line-height: 1.7;
+  font-weight: 500;
 }
 
-/* Texto destacado */
-strong {
-  font-weight: 700;
-}
-
-/* Enlaces */
+/* Enlaces generales */
 a {
-  font-size: 1rem;
   font-weight: 500;
-  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* Pseudoclases: enlace no visitado */
+a:link {
+  color: #f9c29b;
+  background-color: #1C1C1C;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #ff852e;                 /* más brillante */
+  background-color: #1C1C1C;
+  text-shadow: 0 0 0.4em #ff852e;
+  transform: scale(1.05);         /* pequeño aumento */
 }
 
-body{
-    font-family: "Georgia", serif;
-    background-color: #040404;
-    color: #FFFFFF;
+a:focus {
+  outline: 0.15em solid #FF9447;  /* resalta accesible */
+  outline-offset: 0.2em;
 }
 
-/* Especificidad 001*/
-section, article, aside, header, footer, nav, main{
-    background-color: #2E2C25;
+/* Active (mientras se hace clic) */
+a:active {
+  color: black;
+  background-color: #FF9447;
 }
 
-/* Especificidad 001*/
-h1, h2, h3, h4, h5, h6{
-    color: #FA5404;
-}
 
-/* Especificidad 002 o 001*/
-nav a, p a, a {
-    color: #F37212;
-}
-
-/* Especificidad 001*/
-h1 a {
-    color: #FA5404;
+/* Enlace visitado */
+a:visited {
+  color: #f29a57;
+  background-color: #1C1C1C;             
 }
 
 header + p {
   font-size: 0.8rem;
 }
 
-/* Destacar el documento actual (el <strong>) */
-header + p strong {
-  color: #FA5404;         /* resalta en naranja más brillante */
+header + p a {
+  color: #ff9447; 
+  background-color: #040404;
 }
 
+header + p a:link {
+  color: #f9c29b;
+  background-color: #040404;
+}
+
+header + p a:hover {
+  color: #ff852e;                 /* más brillante */
+  background-color: #040404;
+  text-shadow: 0 0 0.4em #ff852e;
+  transform: scale(1.05);         /* pequeño aumento */
+}
+
+header + p a:focus {
+  outline: 0.15em solid #FF9447;  /* resalta accesible */
+  outline-offset: 0.2em;
+}
+
+/* Active (mientras se hace clic) */
+header + p a:active {
+  color: black;
+  background-color: black;
+}
+
+
+/* Enlace visitado */
+header + p a:visited {
+  color: #f29a57;
+  background-color: #040404;             
+}
+
+/* Destacar documento actual */
+header + p strong {
+  color: #ff9447; /* mantiene coherencia */
+  background-color: #040404; 
+}
+
+/* Enlace activo */
 a.active {
-  color: #FA5404;                    /* mantiene coherencia con los títulos */
-  background-color: #1A1A1A;         /* destaca sobre el fondo */
-  font-weight: 700;                  /* resalta sin depender del color */
-  padding: 0.2em 0.4em;              /* usa em para escalar con la fuente */
-  border-radius: 0.3em;              /* borde suave relativo */
-  border-bottom: 0.15em solid #FA5404; /* línea inferior relativa */
-  text-shadow: 0 0 0.5em #FA5404;    /* brillo sutil escalable */
+  color: #FF8000;
+  background-color: #000000;
+  font-weight: 700;
+  border-radius: 0.3em;
+  border-bottom: 0.15em solid #FF8000;
+  text-shadow: 0 0 0.5em #FF8000;
+}
+
+/* Navegación */
+
+
+nav a, nav a:link {
+  color: #f29a57; /* texto claro sobre fondo oscuro, contraste 8.9:1 */
+  background-color: #1C1C1C;
+  padding: 0.5em 1em;
+  margin: 0 0.2em;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border-radius: 0.3em;
+}
+
+/* Hover / Focus */
+nav a:hover,
+nav a:focus {
+  background-color: #FF6B00; /* naranja brillante */
+  color: #000000; /* contraste 13:1 */
+  text-shadow: 0 0 0.3em #FF8000;
+}
+
+
+/* ============================================== */
+/* Estilos de listas - MotoGP Desktop              */
+/* Yeray Rodríguez Granda UO284247                 */
+/* ============================================== */
+
+/* --- Listas NO ORDENADAS (ul) --- */
+ul {
+  list-style-type: square;              /* cambia la viñeta por cuadrados */
+  list-style-position: inside;          /* coloca la viñeta dentro del bloque */
+  padding-left: 1em;                    /* separación relativa */
+  font-size: 1rem;                      /* tamaño relativo */
+  line-height: 1.6;                     /* espacio entre líneas */
+  color: #FFFFFF;                       /* color de texto cálido */
+  background-color: #1C1C1C; 
+}
+
+ul li {
+  margin-bottom: 0.4em;                 /* separación vertical relativa */
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+ul li:hover {
+  color: #f9c29b;                       /* resalta al pasar el ratón */
+  background-color: #1C1C1C; 
+  transform: translateX(0.3em);         /* pequeño desplazamiento */
+}
+
+/* --- Listas ORDENADAS (ol) --- */
+ol {
+  list-style-type: decimal; 
+  list-style-position: outside;
+}
+
+ol li {
+  font-size: 1.05rem;
+  color: #FFFFFF;
+  background-color: #1C1C1C; 
+}
+
+ol li::marker {
+  color: #ff852e;                        /* color del número */
+  background-color: #1C1C1C; 
+  font-weight: 700;                      /* más destacado */
+  font-size: 1.1em;
+}
+
+dl {
+  background-color: #1C1C1C;       /* coherente con fondo de secciones */
+  color: #ff852e;
+  border-left: 0.3em solid #FF8000; /* barra lateral naranja */
+  border-radius: 0.5em;
+}
+
+/* Término a definir */
+dt {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #FF9447;                  /* tono cálido y visible */
+  background-color: #1C1C1C;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+/* Definición del término */
+dd {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #FFFFFF;
+  background-color: #1C1C1C;
+  border-left: 0.15em solid #ff852e; /* separación visual */
+}
+
+table {
+  margin: 2em 0;
+  background-color: #1C1C1C;
+  color: #FFFFFF;
+  font-size: 1rem;
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+
+/* --- Encabezados --- */
+th {
+  background-color: #FF8000;        /* naranja principal */
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 0.15em solid #000000;
+}
+
+/* --- Celdas de datos --- */
+td {
+  padding: 0.8em 1em;
+  border-bottom: 0.1em solid #333;
+  background-color: #2a2a2a;
+  color: #FFD9B3;
 }

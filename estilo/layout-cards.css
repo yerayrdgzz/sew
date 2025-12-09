@@ -1,0 +1,35 @@
+main {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columnas */
+  gap: 1rem;
+  padding: 1rem;
+  max-width: 100%; /* evita overflow */
+  box-sizing: border-box;
+  justify-items: center; /* 🔹 centra los articles horizontalmente */
+  align-items: center; 
+}
+
+main > h2 {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+main > p {
+  grid-column: 1 / -1;
+  text-align: center; 
+}
+
+main > article {
+  border-radius: 0.5rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 320px) and (max-width: 799px) {
+    main {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
