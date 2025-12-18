@@ -14,7 +14,7 @@ section, article, aside, header, footer, nav, main {
   color: #FFFFFF;
 }
 
-/* Titulares */
+/* Titulares */ 
 h1, h2, h3, h4, h5, h6 {
   color: #ff852e; /* contraste 7.3:1 sobre #1C1C1C */
   background-color: #1C1C1C;
@@ -74,8 +74,8 @@ a:hover {
 }
 
 a:focus {
-  outline: 0.15em solid #FB9246;
-  background-color: #1C1C1C;
+  color: #FB9246;
+  background-color: #1C1C1C;  
   outline-offset: 0.2em;
 }
 
@@ -109,7 +109,8 @@ nav a.active {
 }
 
 /* selección de texto (AChecker) */
-nav a::selection {
+nav a::selection,
+nav a.active::selection {
   color: #000000;
   background-color: #FFB380;
 }
