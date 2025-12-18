@@ -64,6 +64,14 @@ a {
 
 
 
+a:hover {
+  color: #FB9246;
+  background-color: #1C1C1C;
+  transform: scale(1.05);
+}
+
+
+
 /* =====================
    NAVEGACIÓN
    ===================== */
@@ -75,6 +83,11 @@ nav a {
   border-radius: 0.3em;
 }
 
+nav a:hover,
+nav a:focus {
+  color: #000000;
+  background-color: #FB9246;
+}
 
 
 
