@@ -218,36 +218,42 @@ class Ciudad {
         // Asumimos que todos los arrays de datos horarios tienen la misma longitud
         const numHours = hourly.time.length;
 
-        for (let i = 0; i < numHours; i++) {
-            const hora = hourly.time[i].substring(11); // Obtiene solo HH:MM
-        
-            // 1. Crear el TÍTULO H4 para la hora
-            const h4Hora = document.createElement('h4');
-            h4Hora.textContent = `${hora} h`; 
-            section.appendChild(h4Hora); // Añadir el H4 al fragmento
-
-            // 2. Lista para las métricas de esta hora
-            const ulMetricas = document.createElement('ul');
+        // Sustituir el bucle anterior por este:
+        for (let i = 0; i < hourly.time.length; i++) {
+            const horaCompleta = hourly.time[i].substring(11, 13); // Extrae solo el número de la hora (ej: "14")
             
-            // Definición de las métricas y sus valores/unidades
-            const metricas = [
-                { label: 'Temperatura a 2 metros del suelo', value: hourly.temperature_2m[i], unit: units.temperature_2m },
-                { label: 'Sensación Térmica', value: hourly.apparent_temperature[i], unit: units.apparent_temperature },
-                { label: 'Lluvia', value: hourly.rain[i], unit: units.rain },
-                { label: 'Humedad Relativa a 2 metros al suelo', value: hourly.relative_humidity_2m[i], unit: units.relative_humidity_2m },
-                { label: 'Velocidad Viento a 10 metros del suelo', value: hourly.wind_speed_10m[i], unit: units.wind_speed_10m },
-                { label: 'Dirección Viento a 10 metros del suelo', value: hourly.wind_direction_10m[i], unit: '°' }
-            ];
+            // Filtramos para que solo procese la hora 14 (las 2 de la tarde)
+            if (horaCompleta === "14") {
+                const horaFormateada = hourly.time[i].substring(11); // "14:00"
 
-            // Llenar la lista anidada con las métricas
-            metricas.forEach(metrica => {
-                const liMetrica = document.createElement('li');
-                liMetrica.textContent = `${metrica.label}: ${metrica.value} ${metrica.unit}`;
-                ulMetricas.appendChild(liMetrica);
-            });
+                // 1. Crear el TÍTULO H4 para la hora de la carrera
+                const h4Hora = document.createElement('h4');
+                h4Hora.textContent = `Condiciones en el horario de carrera: ${horaFormateada} h`; 
+                section.appendChild(h4Hora);
 
-            // 3. Añadir la lista de métricas al fragmento, después del H4
-            section.appendChild(ulMetricas);
+                // 2. Lista para las métricas de esta hora específica
+                const ulMetricas = document.createElement('ul');
+                
+                const metricas = [
+                    { label: 'Temperatura a 2 metros del suelo', value: hourly.temperature_2m[i], unit: units.temperature_2m },
+                    { label: 'Sensación Térmica', value: hourly.apparent_temperature[i], unit: units.apparent_temperature },
+                    { label: 'Lluvia', value: hourly.rain[i], unit: units.rain },
+                    { label: 'Humedad Relativa', value: hourly.relative_humidity_2m[i], unit: units.relative_humidity_2m },
+                    { label: 'Velocidad Viento', value: hourly.wind_speed_10m[i], unit: units.wind_speed_10m },
+                    { label: 'Dirección Viento', value: hourly.wind_direction_10m[i], unit: '°' }
+                ];
+
+                metricas.forEach(metrica => {
+                    const liMetrica = document.createElement('li');
+                    liMetrica.textContent = `${metrica.label}: ${metrica.value} ${metrica.unit}`;
+                    ulMetricas.appendChild(liMetrica);
+                });
+
+                section.appendChild(ulMetricas);
+                
+                // Como ya encontramos la hora de la carrera, podemos dejar de buscar
+                break; 
+            }
         }
         fragment.append(section);
         return fragment;

@@ -27,7 +27,7 @@
             <a href="clasificaciones.php" class="active">Clasificaciones</a>
             <a href="juegos.html">Juegos</a>
             <a href="ayuda.html">Ayuda</a>
-            <a href="cronometro.php">Cronómetro PHP</a>
+            <a href="cronometroPHP.php">Cronómetro PHP</a>
         </nav>
     </header>
     <p>Estás en: <a href="index.html">Inicio</a> >> <strong>Clasificaciones</strong></p>
@@ -43,7 +43,7 @@ class Clasificacion
 
     public function __construct()
     {
-        $this->documento = "C:/xampp/htdocs/MotoGP-Desktop/xml/circuitoEsquema.xml";
+        $this->documento = "xml/circuitoEsquema.xml";
     }
 
     public function consultar(): void
@@ -91,14 +91,14 @@ class Clasificacion
         // Estructura HTML simple para mostrar la información
         $output = "
         <section>
-            <h3>Información del Ganador</h3>
+            <h3>Ganador de la carrera</h3>
             <ul>
             <li>El nombre del ganador de la carrera es: " . htmlspecialchars($nombreGanador) . "</li>
             <li>El tiempo empleado para ello fue: " . htmlspecialchars($tiempo_formateado) . "S</li>
             </ul>
         </section>
         <section>
-            <h4>Clasificación de la carrera</h4>
+            <h3>Clasificación de la carrera</h4>
             <ol>
             <li>" . htmlspecialchars($clasificados[0]['name']) . "</li>
             <li>" . htmlspecialchars($clasificados[1]['name']) . "</li>

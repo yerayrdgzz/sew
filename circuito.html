@@ -29,23 +29,26 @@
             <a href="clasificaciones.php">Clasificaciones</a>
             <a href="juegos.html">Juegos</a>
             <a href="ayuda.html">Ayuda</a>
-            <a href="cronometro.php">Cronómetro PHP</a>
+            <a href="cronometroPHP.php">Cronómetro PHP</a>
         </nav>
     </header>
     <p>Estás en: <a href="index.html">Inicio</a> >> <strong>Circuito</strong></p>
-    <main>
+    <main> 
         <h2>Motorland Aragón</h2>
         <section>
             <h3>Cargar KML</h3>
-            <input type="file" accept=".kml">
-        </section>
+            <label for="archivoKML">Selecciona un archivo KML:</label>
+            <input type="file" id="archivoKML" name="archivoKML" accept=".kml">
+        </section> 
         <section>
             <h3>Cargar SVG</h3>
-            <input type="file" accept="svg">
+            <label for="archivoSVG">Selecciona un archivo SVG:</label>
+            <input type="file" id="archivoSVG" name="archivoSVG" accept="image/svg+xml">
         </section>
         <section>
             <h3>Cargar HTML</h3>
-            <input type="file" accept="text/html">
+            <label for="archivoHTML">Selecciona un archivo HTML:</label>
+            <input type="file" id="archivoHTML" name="archivoHTML" accept="text/html">
         </section>
         <script>
             let kml = new CargadorKML();

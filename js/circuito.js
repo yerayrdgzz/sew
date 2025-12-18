@@ -175,9 +175,14 @@ class Circuito {
         }
 
         this.#h3_referencias = doc.querySelector('h3:has(+ ul)');
-        this.#referencias = [];
+        this.#referencias = {};
         const enlacesRefs = doc.querySelectorAll('h3 + ul a');
-        enlacesRefs.forEach(a => this.#referencias.push(a.href));
+        enlacesRefs.forEach(a => {
+            const nombrePagina = a.textContent.trim();
+            const urlPagina = a.href;
+            
+            this.#referencias[nombrePagina] = urlPagina;
+        });
 
         this.#h3_fotos = doc.querySelector('h3:has(+ img)');
         this.#fotos = [];
@@ -222,10 +227,15 @@ class Circuito {
             </ul>
         `;
 
-        if (this.#referencias.length > 0) {
+        // Comprobamos si el objeto tiene al menos una clave (equivalente a length > 0)
+        if (Object.keys(this.#referencias).length > 0) {
             htmlDatos += `
                 <h3>${this.#h3_referencias ? this.#h3_referencias.textContent : 'Referencias'}</h3>
-                <ul>${this.#referencias.map(ref => `<li><a href="${ref}" target="_blank">${ref}</a></li>`).join('')}</ul>
+                <ul>
+                    ${Object.entries(this.#referencias).map(([nombre, url]) => 
+                        `<li><a href="${url}">${nombre}</a></li>`
+                    ).join('')}
+                </ul>
             `;
         }
 

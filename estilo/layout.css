@@ -13,6 +13,15 @@ header h1 {
   margin: 0;                     /* elimina márgenes por defecto */
   text-align: center;            /* centra el texto */
   flex: 0 0 auto;                /* no se estira ni encoge */
+  line-height: 1.2;
+}
+
+h2{
+  line-height: 1.3;
+}
+
+h3{
+  line-height: 1.4;
 }
 
 nav {
@@ -30,11 +39,12 @@ nav a {
 }
 
 a{
-    position: relative;              /* necesario para icono decorativo */
+  position: relative;              /* necesario para icono decorativo */
 }
 
 a.active{
-    padding: 0.2em 0.4em;
+  padding: 0.2em 0.4em;
+  border-radius: 0.3em;
 }
 
 nav a, nav a:link {
@@ -44,6 +54,7 @@ nav a, nav a:link {
 
 ul {
   padding-left: 1em;                    /* separación relativa */
+  line-height: 1.6;
 }
 
 ul li {
@@ -63,6 +74,7 @@ ol li {
 dl {
   margin: 1.5em 0;
   padding: 1em;
+  border-radius: 0.5em;
 }
 
 dt {
@@ -79,15 +91,80 @@ dd {
 table {
   width:80%;
   margin: 2em 0;
+  border-radius: 0.5em;
+  overflow: hidden;
 }
 
 th {
   padding: 0.8em 1em;
+  text-align: left;
 }
 
 /* --- Celdas de datos --- */
 td {
   padding: 0.8em 1em;
+}
+
+/* Caja del formulario */
+form {
+  max-width: 30em;
+  margin: 1em auto;
+  width: 90%; /* Responsivo para móviles */
+}
+
+/* Etiquetas y campos de texto */
+label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.8em;
+  margin-bottom: 1.5em;
+  display: block;
+  box-sizing: border-box; /* Crucial para el layout */
+}
+
+/* Tamaño específico para el número */
+input[type="number"] {
+  padding: 0.8em;
+  margin-bottom: 1.5em;
+  display: block;
+  box-sizing: border-box;
+  width: 20%;
+  min-width: 5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Estructura de Radio Buttons (Etiqueta arriba) */
+fieldset {
+  padding: 1em;
+  margin-bottom: 1.5em;
+  display: flex;
+  justify-content: center;
+}
+
+fieldset label {
+  display: flex;
+  flex-direction: column-reverse; /* Posiciona texto arriba, botón abajo */
+  align-items: center;
+}
+
+input[type="radio"] {
+  margin-top: 0.5em;
+  margin-right: 0.5em;
+  transform: scale(1.1);
+}
+
+/* Botón de envío */
+input[type="submit"] {
+  display: block;
+  margin: 0.8em auto;
+  padding: 0.8em 2em;
 }
 
 main section h3 + img, section img + img, main section h3 + video{

@@ -20,10 +20,9 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #1C1C1C;
 }
 
-h1 {
+header h1 {
   font-size: 2.2rem;        /* título principal */
   font-weight: 700;         /* negrita */
-  line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -31,13 +30,11 @@ h1 {
 h2 {
   font-size: 1.8rem;
   font-weight: 600;
-  line-height: 1.3;
 }
 
 h3 {
   font-size: 1.5rem;
   font-weight: 600;
-  line-height: 1.4;
 }
 
 h4 {
@@ -121,7 +118,7 @@ header + p a:focus {
 /* Active (mientras se hace clic) */
 header + p a:active {
   color: black;
-  background-color: black;
+  background-color: #FF9447;
 }
 
 
@@ -142,7 +139,6 @@ a.active {
   color: #FF8000;
   background-color: #000000;
   font-weight: 700;
-  border-radius: 0.3em;
   border-bottom: 0.15em solid #FF8000;
   text-shadow: 0 0 0.5em #FF8000;
 }
@@ -153,8 +149,6 @@ a.active {
 nav a, nav a:link {
   color: #f29a57; /* texto claro sobre fondo oscuro, contraste 8.9:1 */
   background-color: #1C1C1C;
-  padding: 0.5em 1em;
-  margin: 0 0.2em;
   text-decoration: none;
   transition: all 0.3s ease;
   border-radius: 0.3em;
@@ -169,31 +163,21 @@ nav a:focus {
 }
 
 
-/* ============================================== */
-/* Estilos de listas - MotoGP Desktop              */
-/* Yeray Rodríguez Granda UO284247                 */
-/* ============================================== */
-
-/* --- Listas NO ORDENADAS (ul) --- */
 ul {
   list-style-type: square;              /* cambia la viñeta por cuadrados */
   list-style-position: inside;          /* coloca la viñeta dentro del bloque */
-  padding-left: 1em;                    /* separación relativa */
   font-size: 1rem;                      /* tamaño relativo */
-  line-height: 1.6;                     /* espacio entre líneas */
   color: #FFFFFF;                       /* color de texto cálido */
   background-color: #1C1C1C; 
 }
 
-ul li {
-  margin-bottom: 0.4em;                 /* separación vertical relativa */
+ul li, ol li {
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-ul li:hover {
+ul li:hover, ol li:hover {
   color: #f9c29b;                       /* resalta al pasar el ratón */
   background-color: #1C1C1C; 
-  transform: translateX(0.3em);         /* pequeño desplazamiento */
 }
 
 /* --- Listas ORDENADAS (ol) --- */
@@ -219,7 +203,6 @@ dl {
   background-color: #1C1C1C;       /* coherente con fondo de secciones */
   color: #ff852e;
   border-left: 0.3em solid #FF8000; /* barra lateral naranja */
-  border-radius: 0.5em;
 }
 
 /* Término a definir */
@@ -242,28 +225,101 @@ dd {
 }
 
 table {
-  margin: 2em 0;
   background-color: #1C1C1C;
   color: #FFFFFF;
   font-size: 1rem;
-  border-radius: 0.5em;
-  overflow: hidden;
 }
 
 /* --- Encabezados --- */
 th {
   background-color: #FF8000;        /* naranja principal */
-  color: #000000;
+  color: #1C1C1C;
   text-transform: uppercase;
   font-weight: 700;
-  text-align: left;
   border-bottom: 0.15em solid #000000;
 }
 
 /* --- Celdas de datos --- */
 td {
-  padding: 0.8em 1em;
   border-bottom: 0.1em solid #333;
   background-color: #2a2a2a;
   color: #FFD9B3;
 }
+
+
+/* Colores y bordes del formulario */
+form {
+  background-color: #1C1C1C;
+  color:#000000;
+  border-radius: 0.8rem;
+  border: 0.1em solid #333333;
+}
+
+/* Tipografía de etiquetas */
+label {
+  color: #ff852e;
+  background-color: #1C1C1C;
+  font-weight: 600;
+  font-family: "Georgia", serif;
+}
+
+/* Aspecto de los inputs */
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+  background-color: #2a2a2a;
+  color: #FFFFFF;
+  border: 0.15em solid #444444;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  text-align: center; /* En el caso del number */
+}
+
+/* Interactividad (Focus) */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #ff852e;
+  box-shadow: 0 0 0.5em rgba(255, 133, 46, 0.4);
+}
+
+/* Aspecto del Fieldset */
+fieldset {
+  border: 0.15em solid #ff852e;
+  border-radius: 0.5rem;
+  background-color: #1C1C1C;
+  color:#000000;
+}
+
+legend {
+  color: #ff852e;
+  background-color: #1C1C1C;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* Aspecto del botón */
+input[type="submit"] {
+  background-color: #FF8000;
+  color: #000000;
+  border: none;
+  border-radius: 0.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #ff852e;
+  color: #000000;
+  box-shadow: 0 0 0.8em #FF8000;
+  transform: scale(1.02);
+}
+
+input[type="radio"] {
+  accent-color: #ff852e;
+}
+

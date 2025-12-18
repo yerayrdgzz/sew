@@ -1,9 +1,6 @@
 <?php
 
 class Configuracion {
-
-    private $conn;
-
     private $servername = "localhost";
     private $username = "DBUSER2025";
     private $password = "DBPSWD2025";
@@ -84,54 +81,82 @@ class Configuracion {
             return $error;
         }
 
-
+        
         // Definición de Tablas
         $tablas = [
-            "CREATE TABLE IF NOT EXISTS profesiones (
-                id_profesion INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                profesion VARCHAR(100) NOT NULL UNIQUE
+            "CREATE TABLE `observaciones` (
+                `id_observacion` int(10) UNSIGNED NOT NULL,
+                `id_resultado` int(10) UNSIGNED NOT NULL,
+                `comentarios` text DEFAULT NULL
             )",
-            "CREATE TABLE IF NOT EXISTS generos (
-                id_genero INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                genero VARCHAR(50) NOT NULL UNIQUE
+            "CREATE TABLE `preguntas` (
+                `id_pregunta` int(10) UNSIGNED NOT NULL,
+                `pregunta` varchar(255) NOT NULL
             )",
-            "CREATE TABLE IF NOT EXISTS usuarios (
-                id_usuario INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                id_profesion INT UNSIGNED NOT NULL,
-                edad TINYINT UNSIGNED NOT NULL,
-                id_genero INT UNSIGNED NOT NULL,
-                pericia_informatica TINYINT UNSIGNED NOT NULL CHECK (pericia_informatica BETWEEN 0 AND 10),
-                FOREIGN KEY (id_profesion) REFERENCES profesiones(id_profesion) ON DELETE RESTRICT ON UPDATE CASCADE,
-                FOREIGN KEY (id_genero) REFERENCES generos(id_genero) ON DELETE RESTRICT ON UPDATE CASCADE
+            "CREATE TABLE `respuestas` (
+                `id_respuesta` int(10) UNSIGNED NOT NULL,
+                `id_resultado` int(10) UNSIGNED NOT NULL,
+                `id_pregunta` int(10) UNSIGNED NOT NULL,
+                `respuesta` varchar(500) NOT NULL
             )",
-            "CREATE TABLE IF NOT EXISTS resultados_test (
-                id_test INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                id_usuario INT UNSIGNED NOT NULL UNIQUE,
-                dispositivo ENUM('ordenador','tableta','telefono') NOT NULL,
-                tiempo_segundos INT UNSIGNED NOT NULL,
-                completado BOOLEAN NOT NULL,
-                comentarios TEXT,
-                propuestas_mejora TEXT,
-                valoracion TINYINT UNSIGNED CHECK (valoracion BETWEEN 0 AND 10),
-                FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
+            "CREATE TABLE `resultados` (
+                `id_resultado` int(10) UNSIGNED NOT NULL,
+                `id_usuario` int(10) UNSIGNED NOT NULL,
+                `dispositivo` enum('Ordenador','Tableta','Teléfono') NOT NULL,
+                `tiempo` time NOT NULL,
+                `completada` tinyint(1) NOT NULL,
+                `comentarios_usuario` text DEFAULT NULL,
+                `propuestas` text DEFAULT NULL,
+                `valoracion` tinyint(3) UNSIGNED DEFAULT NULL
             )",
-            "CREATE TABLE IF NOT EXISTS observaciones (
-                id_observacion INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                id_usuario INT UNSIGNED NOT NULL UNIQUE,
-                comentario_facilitador TEXT NOT NULL,
-                FOREIGN KEY (id_usuario) REFERENCES usuarios(id_usuario) ON DELETE CASCADE ON UPDATE CASCADE
-            )"
+            "CREATE TABLE `usuarios` (
+                `id_usuario` int(10) UNSIGNED NOT NULL ,
+                `profesion` varchar(100) NOT NULL,
+                `edad` tinyint(3) UNSIGNED NOT NULL,
+                `genero` enum('Masculino','Femenino','Otro') NOT NULL,
+                `pericia` tinyint(3) UNSIGNED DEFAULT NULL
+            )",
         ];
 
-        // Crear Tablas
-        foreach ($tablas as $sql) {
-            if (!$conn->query($sql)) {
-                $error = "Error al crear la tabla: " . $conn->error;
-                $conn->close();
-                return $error;
+        $operaciones_alter = [
+            // Claves Primarias y Únicas
+            "ALTER TABLE `observaciones` ADD PRIMARY KEY (`id_observacion`)",
+            "ALTER TABLE `observaciones` ADD UNIQUE KEY `uk_observacion_resultado` (`id_resultado`)",
+            "ALTER TABLE `preguntas` ADD PRIMARY KEY (`id_pregunta`)",
+            "ALTER TABLE `respuestas` ADD PRIMARY KEY (`id_respuesta`)",
+            "ALTER TABLE `resultados` ADD PRIMARY KEY (`id_resultado`)",
+            "ALTER TABLE `usuarios` ADD PRIMARY KEY (`id_usuario`)",
+
+            // Auto Incrementos
+            "ALTER TABLE `observaciones` MODIFY `id_observacion` int(10) UNSIGNED NOT NULL AUTO_INCREMENT",
+            "ALTER TABLE `preguntas` MODIFY `id_pregunta` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1",
+            "ALTER TABLE `respuestas` MODIFY `id_respuesta` int(10) UNSIGNED NOT NULL AUTO_INCREMENT",
+            "ALTER TABLE `resultados` MODIFY `id_resultado` int(10) UNSIGNED NOT NULL AUTO_INCREMENT",
+            "ALTER TABLE `usuarios` MODIFY `id_usuario` int(10) UNSIGNED NOT NULL AUTO_INCREMENT",
+
+            // Índices de Claves Foráneas
+            "ALTER TABLE `respuestas` ADD KEY `fk_respuesta_resultado` (`id_resultado`)",
+            "ALTER TABLE `respuestas` ADD KEY `fk_respuesta_pregunta` (`id_pregunta`)",
+            "ALTER TABLE `resultados` ADD KEY `fk_resultados_usuario` (`id_usuario`)",
+
+            // Restricciones de Claves Foráneas (FK)
+            "ALTER TABLE `observaciones` ADD CONSTRAINT `fk_observacion_resultado` FOREIGN KEY (`id_resultado`) REFERENCES `resultados` (`id_resultado`) ON UPDATE CASCADE",
+            "ALTER TABLE `respuestas` ADD CONSTRAINT `fk_respuesta_pregunta` FOREIGN KEY (`id_pregunta`) REFERENCES `preguntas` (`id_pregunta`) ON UPDATE CASCADE",
+            "ALTER TABLE `respuestas` ADD CONSTRAINT `fk_respuesta_resultado` FOREIGN KEY (`id_resultado`) REFERENCES `resultados` (`id_resultado`) ON DELETE CASCADE ON UPDATE CASCADE",
+            "ALTER TABLE `resultados` ADD CONSTRAINT `fk_resultados_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON UPDATE CASCADE"
+        ];
+
+        $result = $conn->query("SHOW TABLES LIKE 'observaciones'");
+
+        if ($result->num_rows == 0) {
+            foreach ($tablas as $sql) {
+                $conn->query($sql);
+            }
+            foreach ($operaciones_alter as $sql_alter) {
+                $conn->query($sql_alter);
             }
         }
-
+        
         $conn->close();
         return $mensaje_final; 
     }
@@ -148,7 +173,7 @@ class Configuracion {
         }
 
         // Orden inversa para evitar problemas de FK al truncar
-        $tablas = ["observaciones", "resultados_test", "usuarios", "profesiones", "generos"];
+        $tablas = ["observaciones", "preguntas", "respuestas", "resultados", "usuarios"];
         
         // Desactivar FK checks para TRUNCATE
         $conn->query('SET FOREIGN_KEY_CHECKS = 0');
@@ -220,7 +245,7 @@ class Configuracion {
         // 3. Establecer el separador CSV (punto y coma o coma)
         $delimiter = ';'; 
 
-        $tablas = ["profesiones", "generos", "usuarios", "resultados_test", "observaciones"];
+        $tablas = ["observaciones", "preguntas", "respuestas", "resultados", "usuarios"];
 
         // Iterar sobre cada tabla
         foreach ($tablas as $tabla) {
