@@ -108,13 +108,6 @@ nav a.active {
   font-weight: 700;
 }
 
-/* selección de texto (AChecker) */
-nav a::selection,
-nav a.active::selection {
-  color: #000000;
-  background-color: #FFB380;
-}
-
 /* =====================
    TEXTO BAJO HEADER
    ===================== */
@@ -288,4 +281,5 @@ input[type="submit"]:hover {
 input[type="radio"] {
   accent-color: #ff852e;
 }
+
 
