@@ -83,11 +83,6 @@ nav a {
   border-radius: 0.3em;
 }
 
-nav a:hover,
-nav a:focus {
-  color: #000000;
-  background-color: #FB9246;
-}
 
 
 
