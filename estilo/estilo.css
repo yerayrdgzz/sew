@@ -97,6 +97,12 @@ nav a {
   border-radius: 0.3em;
 }
 
+nav a.active {
+  color: #000000;
+  background-color: #FF8000 ;
+  font-weight: 700;
+}
+
 
 
 
