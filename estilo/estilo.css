@@ -52,109 +52,87 @@ h6 {
   font-weight: 500;
 }
 
-/* Enlaces generales */
+/* =====================
+   ESTILOS BASE ENLACES
+   ===================== */
+
 a {
-  font-weight: 500;
   transition: all 0.3s ease;
 }
 
-/* Pseudoclases: enlace no visitado */
+a:link {
+  color: #FFFFFF;              /* blanco sobre fondo negro */
+  background-color: #000000;
+}
 
+a:visited {
+  color: #CCCCCC;              /* gris claro sobre fondo negro */
+  background-color: #000000;
+}
 
 a:hover {
-  color: #ff852e;                 /* más brillante */
-  background-color: #1C1C1C;
-  text-shadow: 0 0 0.4em #ff852e;
-  transform: scale(1.05);         /* pequeño aumento */
+  color: #FFFF00;              /* amarillo brillante */
+  background-color: #000000;
+  text-shadow: 0 0 0.4em #FFFF00;
+  transform: scale(1.05);
 }
 
 a:focus {
-  outline: 0.15em solid #FF9447;  /* resalta accesible */
+  outline: 0.15em solid #FFFF00;  
   outline-offset: 0.2em;
 }
 
-/* Active (mientras se hace clic) */
 a:active {
   color: #000000;
-  background-color: #FF9447;
+  background-color: #00FFFF;   /* cian sobre negro */
 }
 
+/* =====================
+   NAVEGACIÓN
+   ===================== */
+
+nav a {
+  color: #FFFFFF;              /* blanco sobre negro */
+  background-color: #000000;
+  text-decoration: none;
+  border-radius: 0.3em;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #000000;              /* negro sobre amarillo */
+  background-color: #FFFF00;  
+}
+
+nav a.active {
+  color: #00FFFF;              /* cian brillante */
+  background-color: #000000;
+  font-weight: 700;
+  border-bottom: 0.15em solid #00FFFF;
+  text-shadow: 0 0 0.5em #00FFFF;
+}
+
+/* selección de texto */
+nav a::selection {
+  color: #000000;
+  background-color: #FFFF00;
+}
+
+/* =====================
+   TEXTO BAJO HEADER
+   ===================== */
 
 header + p {
   font-size: 0.8rem;
 }
 
-header + p a {
-  color: #ff9447; 
-  background-color: #040404;
-}
-
-
-header + p a:hover {
-  color: #ff852e;                 /* más brillante */
-  background-color: #040404;
-  text-shadow: 0 0 0.4em #ff852e;
-  transform: scale(1.05);         /* pequeño aumento */
-}
-
-header + p a:focus {
-  outline: 0.15em solid #FF9447;  /* resalta accesible */
-  outline-offset: 0.2em;
-}
-
-
-/* Destacar documento actual */
+header + p a,
 header + p strong {
-  color: #ff9447; /* mantiene coherencia */
-  background-color: #040404; 
-}
-
-/* Enlace activo */
-a.active {
-  color: #FF8000;
-  background-color: #000000;
-  font-weight: 700;
-  border-bottom: 0.15em solid #FF8000;
-  text-shadow: 0 0 0.5em #FF8000;
+  color: #FFFFFF;             /* blanco sobre gris oscuro */
+  background-color: #222222;
 }
 
 
-nav a, nav a:link {
-  color: #f29a57; /* texto claro sobre fondo oscuro, contraste 8.9:1 */
-  background-color: #1C1C1C;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border-radius: 0.3em;
-}
-
-/* 1. Mejora el contraste de los enlaces normales */
-a:link, header + p a:link {
-  color: #FFB380; /* Un naranja más vibrante y claro */
-  background-color: #1C1C1C;
-}
-
-/* 2. Mejora los enlaces visitados */
-a:visited, header + p a:visited {
-  color: #f3995e; /* Los visitados deben ser aún más claros en fondos oscuros */
-  background-color: #1C1C1C;
-}
-
-/* Hover / Focus */
-nav a:hover,
-nav a:focus {
-  background-color: #FFB380; /* naranja brillante */
-  color: #000000; /* contraste 13:1 */
-}
-
-nav a::selection {
-  background-color: #FFB380;
-  color: #000000;
-}
-
-nav a::-moz-selection {
-  background-color: #FFB380;
-  color: #000000;
-}
 
 ul {
   list-style-type: square;              /* cambia la viñeta por cuadrados */
