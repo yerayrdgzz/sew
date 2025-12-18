@@ -22,7 +22,6 @@
             <a href="clasificaciones.php">Clasificaciones</a>
             <a href="juegos.html">Juegos</a>
             <a href="ayuda.html">Ayuda</a>
-            <a href="cronometroPHP.php" class="active">Cronómetro PHP</a>
         </nav>
     </header>
     <main>

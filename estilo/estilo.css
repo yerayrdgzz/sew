@@ -85,7 +85,7 @@ a:active {
 
 /* Enlace visitado */
 a:visited {
-  color: #f29a57;
+  color: #ffad72;
   background-color: #1C1C1C;             
 }
 
@@ -147,7 +147,7 @@ a.active {
 
 
 nav a, nav a:link {
-  color: #f29a57; /* texto claro sobre fondo oscuro, contraste 8.9:1 */
+  color: #FF6B00; /* texto claro sobre fondo oscuro, contraste 8.9:1 */
   background-color: #1C1C1C;
   text-decoration: none;
   transition: all 0.3s ease;

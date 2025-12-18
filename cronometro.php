@@ -17,10 +17,9 @@ class Cronometro
 
     public function arrancar(): void
     {
-        if ($this->inicio === 0.0) {
-            $this->inicio = microtime(true);
-            $this->tiempo = 0.0;
-        }
+        $this->inicio = microtime(true);
+        $this->tiempo = 0.0;
+        
     }
 
     public function parar(): void

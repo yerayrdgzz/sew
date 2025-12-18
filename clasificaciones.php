@@ -3,7 +3,6 @@
 
 <html lang="es">
 <head>
-    <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <meta name ="author" content ="Yeray Rodríguez Granda" />
     <meta name ="description" content ="Las clasificaciones de MotoGP" />
@@ -16,7 +15,6 @@
 </head>
 
 <body>
-    <!-- Datos con el contenidos que aparece en el navegador -->
     <header>
         <h1><a href="index.html">MotoGP Desktop</a></h1>
         <nav>
@@ -27,7 +25,6 @@
             <a href="clasificaciones.php" class="active">Clasificaciones</a>
             <a href="juegos.html">Juegos</a>
             <a href="ayuda.html">Ayuda</a>
-            <a href="cronometroPHP.php">Cronómetro PHP</a>
         </nav>
     </header>
     <p>Estás en: <a href="index.html">Inicio</a> >> <strong>Clasificaciones</strong></p>
