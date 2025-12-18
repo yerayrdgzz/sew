@@ -118,8 +118,6 @@ a.active {
   text-shadow: 0 0 0.5em #FF8000;
 }
 
-/* Navegación */
-
 
 nav a, nav a:link {
   color: #f29a57; /* texto claro sobre fondo oscuro, contraste 8.9:1 */
@@ -141,25 +139,22 @@ a:visited, header + p a:visited {
   background-color: #1C1C1C;
 }
 
-/* 3. ARREGLA EL ERROR DE SELECCIÓN (El que te da el validador) */
-::selection {
-  background-color: #FF8000; /* Fondo naranja fuerte */
-  color: #000000;            /* Letra negra pura para contraste máximo */
-}
-
-a::selection {
-  background-color: #FF8000;
-  color: #000000;
-}
-
 /* Hover / Focus */
 nav a:hover,
 nav a:focus {
-  background-color: #FF6B00; /* naranja brillante */
+  background-color: #FFB380; /* naranja brillante */
   color: #000000; /* contraste 13:1 */
-  text-shadow: 0 0 0.3em #FF8000;
 }
 
+nav a::selection {
+  background-color: #FFB380;
+  color: #000000;
+}
+
+nav a::-moz-selection {
+  background-color: #FFB380;
+  color: #000000;
+}
 
 ul {
   list-style-type: square;              /* cambia la viñeta por cuadrados */
