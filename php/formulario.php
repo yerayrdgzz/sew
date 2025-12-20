@@ -151,7 +151,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <h2>Cuestionario de Usabilidad</h2>
                 <p>Por favor, responda a las siguientes preguntas según lo observado en la web:</p>
                 <form action="#" method="post">
-                    <input type="hidden" name="accion" value="finalizar">
                     
                     <p>
                         <label for="p1">1. ¿Cuál es la primera noticia que aparece en el inicio de la página?</label>

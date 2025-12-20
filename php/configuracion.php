@@ -326,7 +326,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["accion"])) {
         <h2>Configuración Test</h2>
 
         <form method="post">
-            <button type="submit" name="accion" value="crear">Crear Base de Datos</button>
+            <button type="submit" name="accion" value="crear">Crear Base de Datos</button>  
         </form>
 
         <form method="post">

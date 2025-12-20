@@ -96,7 +96,7 @@ class SVG:
                 y = self.SVG_HEIGHT - self.PADDING - (rango_base + y_normalizado)
                 y_axis_marks.append(
                     f'<line x1="{self.PADDING}" y1="{y}" x2="{rect_width+10}" y2="{y}" stroke="#ccc" stroke-width="1" />'
-                    f'<text x="{rect_width + 15}" y="{y + 4}" font-size="12" text-anchor="start">{alt} m</text>'
+                    f'<text x="{rect_width + 15}" y="{y + 4}" fill="white" font-size="12" text-anchor="start">{alt} m</text>'
                 )
 
         svg_content = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -111,7 +111,7 @@ class SVG:
             <rect x="{self.PADDING}" y="{self.PADDING}" width="{rect_width}" height="{self.SVG_HEIGHT - 2 * self.PADDING}" style="fill:none;stroke:red;stroke-width:2" />
 
             <!-- Etiqueta del eje Y (vertical a la derecha del marco) -->
-            <text x="{rect_width + 45}" y="{(self.SVG_HEIGHT / 2) + 15}" font-size="14" text-anchor="middle" transform="rotate(-90 {rect_width + 45},{self.SVG_HEIGHT / 2})">Altitud (m)</text>
+            <text x="{rect_width + 45}" y="{(self.SVG_HEIGHT / 2) + 30}" font-size="14" fill="white" text-anchor="middle" transform="rotate(-90 {rect_width + 45},{self.SVG_HEIGHT / 2})">Altitud (m)</text>
         </svg>"""
 
         try:

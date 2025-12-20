@@ -1,3 +1,6 @@
+/*Yeray Rodríguez Granda UO284247*/
+/*Layout generales del proyecto MotoGP-Desktop*/
+
 header {
   display: flex;                 /* activa Flexbox */
   flex-direction: column;        /* apila h1 y nav verticalmente */
@@ -8,7 +11,6 @@ header {
   gap: 1em;                      /* separación entre h1 y nav */
 }
 
-/* Título principal */
 header h1 {
   margin: 0;                     /* elimina márgenes por defecto */
   text-align: center;            /* centra el texto */
@@ -100,7 +102,6 @@ th {
   text-align: left;
 }
 
-/* --- Celdas de datos --- */
 td {
   padding: 0.8em 1em;
 }
@@ -140,7 +141,6 @@ input[type="number"] {
   margin-right: auto;
 }
 
-/* Estructura de Radio Buttons (Etiqueta arriba) */
 fieldset {
   padding: 1em;
   margin-bottom: 1.5em;
@@ -186,24 +186,24 @@ section > div{
 
 @media (min-width: 320px) and (max-width: 799px) {
    header {
-      display: flex;
-      flex-direction: column;      /* apila h1 y nav */
-      align-items: center;         /* centra horizontalmente */
-      justify-content: center;     /* centra verticalmente si hay espacio extra */
+      display: flex;               /* Redefinición de display */
+      flex-direction: column;      /* Redifinición de flex-direction */
+      align-items: center;         /* Redifinición de align items */
+      justify-content: center;     /* Redifinición de justify-content */
     }
   
     /* 2️⃣ NAV: los enlaces en columna */
     nav {
-      display: flex;
-      flex-direction: column;      /* apila los enlaces verticalmente */
-      align-items: center;         /* centra cada enlace */
-      justify-content: center;
+      display: flex;               /* Redefinición de display */
+      flex-direction: column;      /* Redifinición de flex-direction */
+      align-items: center;         /* Redifinición de align-items */
+      justify-content: center;     /* Redefinición de justify-content */
       gap: 0.5em;                  /* separación entre enlaces */
     }
   
     /* 3️⃣ ENLACES DENTRO DEL NAV: se ajustan al ancho disponible */
     nav a {
-      text-align: center;          /* centra el texto del enlace */
+      text-align: center;          /* Redifinición de text-align */
       justify-content: center;
     }
     header+p {

@@ -52,24 +52,20 @@ h6 {
   font-weight: 500;
 }
 
-/* =====================
-   ESTILOS BASE ENLACES
-   ===================== */
-
 a {
   transition: all 0.3s ease;
-  color: #ff852e;
-  background-color: #1C1C1C;
-}
-
-a:link {
   color: #f29a57;
   background-color: #1C1C1C;
 }
 
-a:hover {
-  color: #FB9246;
+a:link {
+  color: #ff852e;
   background-color: #1C1C1C;
+}
+
+a:hover {
+  color: #1C1C1C;
+  background-color: #FB9246;
   transform: scale(1.05);
 }
 
@@ -108,11 +104,12 @@ nav a:hover {
   background-color: #FB9246;
 }
 
+audio{
+  background: #F1F3F4;
+  color: #FFFFFF;
+  border-radius: 0.5rem;
+}
 
-
-/* =====================
-   TEXTO BAJO HEADER
-   ===================== */
 
 header + p {
   font-size: 0.8rem;
@@ -141,7 +138,6 @@ ul li:hover, ol li:hover {
   background-color: #1C1C1C; 
 }
 
-/* --- Listas ORDENADAS (ol) --- */
 ol {
   list-style-type: decimal; 
   list-style-position: outside;
@@ -191,7 +187,6 @@ table {
   font-size: 1rem;
 }
 
-/* --- Encabezados --- */
 th {
   background-color: #FF8000;        /* naranja principal */
   color: #1C1C1C;
@@ -200,7 +195,6 @@ th {
   border-bottom: 0.15em solid #000000;
 }
 
-/* --- Celdas de datos --- */
 td {
   border-bottom: 0.1em solid #333;
   background-color: #2a2a2a;
@@ -211,7 +205,7 @@ td {
 /* Colores y bordes del formulario */
 form {
   background-color: #1C1C1C;
-  color:#000000;
+  color:#FFFFFF;
   border-radius: 0.8rem;
   border: 0.1em solid #333333;
 }
