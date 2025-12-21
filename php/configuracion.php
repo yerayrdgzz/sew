@@ -220,67 +220,76 @@ class Configuracion {
         EXPORTAR TODAS LAS TABLAS A CSV
     ====================================================== */
     public function exportarCSV() {
-
         $conn = $this->getConnection(true);
+        if (is_string($conn)) return $conn;
+
+        $filename = "estudio_completo_motogp_" . date('Ymd_His') . ".csv";
         
-        // Verifica si la conexión o la selección de la BD falló
-        if (is_string($conn)) {
-            return $conn;
-        }
-
-        // 1. Establecer encabezados HTTP para la descarga
-        $filename = "exportacion_datos_" . date('Ymd_His') . ".csv";
-
-        // Limpiar el buffer de salida por si hay espacios o saltos de línea antes de los encabezados
-        if (ob_get_contents()) {
-            ob_clean();
-        }
-
         header('Content-Type: text/csv; charset=utf-8');
-        header('Content-Disposition: attachment; filename="' . $filename . '"');
+        header('Content-Disposition: attachment; filename="' . $filename . '";');
 
-        // 2. Usar php://output para enviar el contenido al navegador
         $output = fopen('php://output', 'w');
-        
-        // 3. Establecer el separador CSV (punto y coma o coma)
-        $delimiter = ';'; 
+        // BOM para acentos en Excel
+        fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
 
-        $tablas = ["observaciones", "preguntas", "respuestas", "resultados", "usuarios"];
+        // 1. Cabeceras exactamente como las has pedido
+        $cabeceras = [
+            'id_usuario', 'profesion', 'edad', 'genero', 'pericia', 
+            'id_resultado', 'id_usuario_dup', 'dispositivo', 'tiempo', 'completada', 'comentarios_usuario', 'propuestas', 'valoracion',
+            'id_respuesta_ref', 'id_resultado_ref', 'P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7', 'P8', 'P9', 'P10',
+            'id_observacion', 'id_resultado_obs', 'comentarios'
+        ];
+        fputcsv($output, $cabeceras, ',');
 
-        // Iterar sobre cada tabla
-        foreach ($tablas as $tabla) {
-            
-            // Añadir un encabezado separador para distinguir las tablas
-            fputcsv($output, ["--- Tabla: " . strtoupper($tabla) . " ---"], $delimiter);
-            
-            $result = $conn->query("SELECT * FROM $tabla");
-            
-            if ($result === FALSE) {
-                // Si falla la consulta, cerramos y retornamos error (Aunque el cliente ya tiene encabezados, intentamos avisar)
-                $conn->close();
-                return "Error al consultar la tabla '$tabla': " . $conn->error;
+        // 2. Consulta SQL: Unimos las tablas y usamos MAX(CASE...) para poner las preguntas en columnas
+        $query = "SELECT 
+                    u.id_usuario, u.profesion, u.edad, u.genero, u.pericia,
+                    res.id_resultado, res.id_usuario AS id_usuario_dup, res.dispositivo, res.tiempo, res.completada, res.comentarios_usuario, res.propuestas, res.valoracion,
+                    MIN(resp.id_respuesta) as id_respuesta_ref, resp.id_resultado as id_resultado_ref,
+                    MAX(CASE WHEN resp.id_pregunta = 1 THEN resp.respuesta END) AS P1,
+                    MAX(CASE WHEN resp.id_pregunta = 2 THEN resp.respuesta END) AS P2,
+                    MAX(CASE WHEN resp.id_pregunta = 3 THEN resp.respuesta END) AS P3,
+                    MAX(CASE WHEN resp.id_pregunta = 4 THEN resp.respuesta END) AS P4,
+                    MAX(CASE WHEN resp.id_pregunta = 5 THEN resp.respuesta END) AS P5,
+                    MAX(CASE WHEN resp.id_pregunta = 6 THEN resp.respuesta END) AS P6,
+                    MAX(CASE WHEN resp.id_pregunta = 7 THEN resp.respuesta END) AS P7,
+                    MAX(CASE WHEN resp.id_pregunta = 8 THEN resp.respuesta END) AS P8,
+                    MAX(CASE WHEN resp.id_pregunta = 9 THEN resp.respuesta END) AS P9,
+                    MAX(CASE WHEN resp.id_pregunta = 10 THEN resp.respuesta END) AS P10,
+                    obs.id_observacion, obs.id_resultado AS id_resultado_obs, obs.comentarios AS comentarios_obs
+                FROM resultados res
+                JOIN usuarios u ON res.id_usuario = u.id_usuario
+                LEFT JOIN respuestas resp ON res.id_resultado = resp.id_resultado
+                LEFT JOIN observaciones obs ON res.id_resultado = obs.id_resultado
+                GROUP BY res.id_resultado
+                ORDER BY res.id_resultado ASC";
+
+        $result = $conn->query($query);
+
+        while ($row = $result->fetch_assoc()) {
+            $filaLimpia = [];
+            foreach ($row as $valor) {
+                // Aplicamos la limpieza de espacios, tabs y saltos de línea a cada celda
+                $filaLimpia[] = $this->limpiarDato($valor);
             }
-
-            // Encabezados de Columna
-            $columns = $result->fetch_fields();
-            $headers = [];
-            foreach ($columns as $col) {
-                $headers[] = $col->name;
-            }
-            fputcsv($output, $headers, $delimiter);
-
-            // Datos
-            while ($row = $result->fetch_assoc()) {
-                fputcsv($output, $row, $delimiter);
-            }
-            
-            fputcsv($output, [''], $delimiter); // Fila vacía para separación visual
+            fputcsv($output, $filaLimpia, ',');
         }
 
         fclose($output);
         $conn->close();
-        exit;        
-        return "DESCARGA_EXITOSA";
+        exit;
+    }
+
+    // Función para garantizar que ningún dato rompa el formato del CSV
+    private function limpiarDato($dato) {
+        if ($dato === null) return "";
+        // Quitamos espacios en blanco de los extremos
+        $dato = trim($dato);
+        // Sustituimos saltos de línea y tabuladores por un espacio simple
+        $dato = str_replace(["\r", "\n", "\t"], " ", $dato);
+        // Si hay múltiples espacios seguidos, los dejamos en uno solo
+        $dato = preg_replace('/\s+/', ' ', $dato);
+        return $dato;
     }
 }
 

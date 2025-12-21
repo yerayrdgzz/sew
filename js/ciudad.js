@@ -226,12 +226,12 @@ class Ciudad {
             if (horaCompleta === "14") {
                 const horaFormateada = hourly.time[i].substring(11); // "14:00"
 
-                // 1. Crear el TÍTULO H4 para la hora de la carrera
+                // Crear el TÍTULO H4 para la hora de la carrera
                 const h4Hora = document.createElement('h4');
                 h4Hora.textContent = `Condiciones en el horario de carrera: ${horaFormateada} h`; 
                 section.appendChild(h4Hora);
 
-                // 2. Lista para las métricas de esta hora específica
+                // Lista para las métricas de esta hora específica
                 const ulMetricas = document.createElement('ul');
                 
                 const metricas = [
@@ -254,7 +254,7 @@ class Ciudad {
                 // Como ya encontramos la hora de la carrera, podemos dejar de buscar
                 break; 
             }
-        }
+    }
         fragment.append(section);
         return fragment;
     }
